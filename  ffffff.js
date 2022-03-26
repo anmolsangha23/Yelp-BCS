@@ -1,11 +1,20 @@
+var locationInput = '2366 Main Mall, Vancouver, BC, Canada';
+var termInput = 'Sushi';
+var radiusInput = 10000;  // in metres (1000/2000/5000/10000)
+
+var name;
+var image;
+var rating;
+var location = "";
+var phone_number;
+var price;
+
+var location_array;
+
 const yelp = require('yelp-fusion');
 const apiKey = '6xRLOT2hzxA37NUpkb0rsyv92fqMhNv8O_c-2_PC04Ryt--xS5xQUQru2A8orO8EojnhSO5mjsUyFUvGFr0MSosv6b4FDMItXK60QMwRmqb7U4yMZ4M_Et_NOTU_YnYx';
 const clientId = 'k0nxX4jW8f0f45dVAD5_tQ';
 const client = yelp.client(apiKey);
-
-var locationInput = '2366 Main Mall, Vancouver, BC, Canada';
-var termInput = 'Sushi';
-var radiusInput = 10000;  // in metres (1000/2000/5000/10000)
 
 const searchRequest = {
     term: termInput,
@@ -18,13 +27,7 @@ const searchRequest = {
 var firstResult;
 var prettyJson;
 
-var name;
-var image;
-var rating;
-var location = "";
-var location_array;
-var phone_number;
-var price;
+
 
 client.search(searchRequest).then(response => {
   var count = Object.keys(response.jsonBody.businesses).length;

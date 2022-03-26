@@ -4,14 +4,15 @@ const clientId = 'k0nxX4jW8f0f45dVAD5_tQ';
 const client = yelp.client(apiKey);
 
 var locationInput = '2366 Main Mall, Vancouver, BC, Canada';
-var categoryInput = 'Chinese';
-var radiusInput = 1000;  // in metres (1000/2000/5000/10000)
+var termInput = 'Italian';
+var radiusInput = 10000;  // in metres (1000/2000/5000/10000)
 
 const searchRequest = {
-    terms: categoryInput,
+    term: termInput,
+    categories: "restaurants, All",
     location: locationInput,
     radius: radiusInput, 
-    open_now: true
+    open_now: true,
   };
 
 var firstResult;
